@@ -1,0 +1,111 @@
+{
+  "ExperimentName": "iris_three_stage",
+  "NumExperiments": 1,
+  "InitialSeed": 10,
+  "ResultsDir": "results",
+  "Dtype": "float32",
+  "ProblemName": "iris",
+  "Dataset": "mnist",
+  "DataDir": "data",
+  "ProblemMode": "class_incremental",
+  "ClassesPerTask": 2,
+  "ClassOrder": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "NumPermutations": 5,
+  "ProvideContext": false,
+  "IrisTasks": [
+    [
+      0,
+      1
+    ],
+    [
+      1,
+      2
+    ]
+  ],
+  "IrisTestPerClass": 15,
+  "IrisEncoding": "population",
+  "IrisUnitsPerFeature": 8,
+  "IrisTuningWidth": 1.0,
+  "TrainingBatchSize": 16,
+  "StepsPerTask": 300,
+  "LogEvery": 50,
+  "SpeedWindow": 25,
+  "EvaluationBatchSize": 50,
+  "EvaluationMaxEpisodes": 0,
+  "MorphologyType": "star",
+  "Branches": 4,
+  "SegmentsPerBranch": 2,
+  "TrunkLeak": 2.0,
+  "BranchLeak": 0.5,
+  "TrunkCoupling": 2.0,
+  "BranchCoupling": 2.0,
+  "OutputPlacement": "all_branch",
+  "CustomParents": [],
+  "CustomCouplings": [],
+  "CustomLeaks": [],
+  "CustomOutputSegments": [],
+  "CustomGateSegments": [],
+  "ReversalExcitatory": 1.0,
+  "ReversalInhibitory": 0.0,
+  "ExcitatoryPerSource": 1,
+  "InhibitoryPerSource": 1,
+  "SynapsePlacement": "any",
+  "FiringTemperature": 0.3,
+  "BackBoost": 2.0,
+  "WeightMax": 10.0,
+  "ContextGateFraction": 0.5,
+  "ContextTrunkGateFraction": 0.0,
+  "ContextStrength": 6.0,
+  "ConductanceRatio": 1.0,
+  "CalibrationTargetRate": 0.1,
+  "OutputActiveFraction": 0.5,
+  "CalibrationBatchSize": 256,
+  "Layers": [
+    {
+      "name": "layer1",
+      "grid": [
+        4,
+        4
+      ],
+      "neurons_per_position": 4,
+      "inputs": [
+        {
+          "source": "observation",
+          "kind": "global",
+          "fan_in": 12
+        }
+      ]
+    }
+  ],
+  "ReadoutSources": [
+    "layer1.z"
+  ],
+  "ReadoutBias": false,
+  "LearningMethod": "recirculation",
+  "Gamma": 0.9,
+  "ActionTemperature": 0.1,
+  "Exploration": 0.1,
+  "SynapseRate": 20.0,
+  "ValueRate": 0.5,
+  "ConsolidationStrength": 10000.0,
+  "ConsolidationDecay": 0.0002,
+  "GradientObjective": "supervised",
+  "GradientLearningRate": 0.001,
+  "AdamBeta1": 0.9,
+  "AdamBeta2": 0.999,
+  "CriticLossWeight": 0.5,
+  "EntropyWeight": 0.01,
+  "SparsityWeight": 0.001,
+  "LearnThresholds": true
+}

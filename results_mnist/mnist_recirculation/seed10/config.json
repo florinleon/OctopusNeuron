@@ -1,0 +1,119 @@
+{
+  "ExperimentName": "mnist_recirculation",
+  "NumExperiments": 1,
+  "InitialSeed": 10,
+  "ResultsDir": "results",
+  "Dtype": "float32",
+  "ProblemName": "mnist",
+  "Dataset": "mnist",
+  "DataDir": "data",
+  "ProblemMode": "class_incremental",
+  "ClassesPerTask": 2,
+  "ClassOrder": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9
+  ],
+  "NumPermutations": 5,
+  "ProvideContext": true,
+  "TrainingBatchSize": 32,
+  "StepsPerTask": 500,
+  "LogEvery": 250,
+  "SpeedWindow": 300,
+  "EvaluationBatchSize": 500,
+  "EvaluationMaxEpisodes": 0,
+  "MorphologyType": "star",
+  "Branches": 4,
+  "SegmentsPerBranch": 2,
+  "TrunkLeak": 2.0,
+  "BranchLeak": 0.5,
+  "TrunkCoupling": 2.0,
+  "BranchCoupling": 2.0,
+  "OutputPlacement": "all_branch",
+  "CustomParents": [],
+  "CustomCouplings": [],
+  "CustomLeaks": [],
+  "CustomOutputSegments": [],
+  "CustomGateSegments": [],
+  "ReversalExcitatory": 1.0,
+  "ReversalInhibitory": 0.0,
+  "ExcitatoryPerSource": 1,
+  "InhibitoryPerSource": 1,
+  "SynapsePlacement": "any",
+  "FiringTemperature": 0.3,
+  "BackBoost": 2.0,
+  "WeightMax": 10.0,
+  "ContextGateFraction": 0.5,
+  "ContextTrunkGateFraction": 0.0,
+  "ContextStrength": 6.0,
+  "ConductanceRatio": 1.0,
+  "CalibrationTargetRate": 0.1,
+  "OutputActiveFraction": 0.5,
+  "CalibrationBatchSize": 256,
+  "Layers": [
+    {
+      "name": "layer1",
+      "grid": [
+        7,
+        7
+      ],
+      "neurons_per_position": 8,
+      "inputs": [
+        {
+          "source": "observation",
+          "kind": "local",
+          "radius": 0.15,
+          "fan_in": 64
+        }
+      ]
+    },
+    {
+      "name": "layer2",
+      "grid": [
+        7,
+        7
+      ],
+      "neurons_per_position": 8,
+      "inputs": [
+        {
+          "source": "layer1.y",
+          "kind": "local",
+          "radius": 0.2,
+          "fan_in": 96
+        },
+        {
+          "source": "layer1.z",
+          "kind": "global",
+          "fan_in": 32
+        }
+      ]
+    }
+  ],
+  "ReadoutSources": [
+    "layer2.z"
+  ],
+  "ReadoutBias": false,
+  "LearningMethod": "recirculation",
+  "Gamma": 0.9,
+  "ActionTemperature": 0.1,
+  "Exploration": 0.1,
+  "SynapseRate": 20.0,
+  "ValueRate": 0.5,
+  "ConsolidationStrength": 10000.0,
+  "ConsolidationDecay": 0.0002,
+  "GradientObjective": "supervised",
+  "GradientLearningRate": 0.001,
+  "AdamBeta1": 0.9,
+  "AdamBeta2": 0.999,
+  "CriticLossWeight": 0.5,
+  "EntropyWeight": 0.01,
+  "SparsityWeight": 0.001,
+  "LearnThresholds": true
+}

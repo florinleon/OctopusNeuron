@@ -1,0 +1,35 @@
+{
+  "task_names": [
+    "setosa-versicolor",
+    "versicolor-virginica"
+  ],
+  "average_accuracy": [
+    1.0,
+    0.9833333333333334
+  ],
+  "final_average_accuracy": 0.9833333333333334,
+  "forgetting": [
+    0.0
+  ],
+  "mean_forgetting": 0.0,
+  "learning_speed": [
+    0.8025,
+    0.62
+  ],
+  "final_training_reward": [
+    0.925,
+    0.8575
+  ],
+  "accuracy_matrix": [
+    [
+      1.0,
+      0.5
+    ],
+    [
+      1.0,
+      0.9666666666666667
+    ]
+  ],
+  "seed": 10,
+  "elapsed_seconds": 0.5384924411773682
+}
