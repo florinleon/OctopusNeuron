@@ -35,7 +35,7 @@ A typical experimental workflow consists of:
 
 A detailed description of the model, the learning rule and the experiments can be found in this paper:
 
-> Florin Leon, *Unipolar Neuron Networks Trained by Recirculation for Reward-Based Continual Learning*, 2026
+> Florin Leon, *Unipolar Neuron Networks Trained by Recirculation for Reward-Based Continual Learning*, 2026, https://arxiv.org/abs/2611.14153 .
 
 ## Note
 
